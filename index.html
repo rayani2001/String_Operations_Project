@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Operations</title>
+    <style>
+        /* CSS Styling */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+        }
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HTML Structure -->
+    <div class="container">
+        <h1>String Operations</h1>
+        <input type="text" id="string1" placeholder="Enter String 1">
+        <input type="text" id="string2" placeholder="Enter String 2">
+        <input type="text" id="string3" placeholder="Enter String 3">
+        <button id="reset">Reset</button>
+        <button id="calculate">Calculate</button>
+        <p id="result">Result: </p>
+    </div>
+
+    <script>
+        // JavaScript Code
+        document.getElementById("calculate").addEventListener("click", () => {
+            const str1 = document.getElementById("string1").value;
+            const str2 = document.getElementById("string2").value;
+            const str3 = document.getElementById("string3").value;
+
+            // Example: Perform a random operation
+            const operations = [
+                () => `String length of String 1: ${str1.length}`,
+                () => `String slice(0, 3): ${str1.slice(0, 3)}`,
+                () => `String concat: ${str1.concat(" ", str2)}`,
+                () => `String replace: ${str1.replace("a", "@")}`,
+            ];
+
+            // Choose a random operation
+            const randomOperation = operations[Math.floor(Math.random() * operations.length)];
+            document.getElementById("result").innerText = `Result: ${randomOperation()}`;
+        });
+
+        document.getElementById("reset").addEventListener("click", () => {
+            document.getElementById("string1").value = "";
+            document.getElementById("string2").value = "";
+            document.getElementById("string3").value = "";
+            document.getElementById("result").innerText = "Result: ";
+        });
+    </script>
+</body>
+</html>
